@@ -5,14 +5,14 @@ type Entry = {
   id: number;
   text: string;
   date: string;
-  ai?: string; // we'll add this later
+  ai?: string; 
 };
 
 export default function Journal() {
   const [text, setText] = useState("");
   const [entries, setEntries] = useState<Entry[]>([]);
 
-  // Load entries from localStorage on mount
+  
   useEffect(() => {
     const saved = localStorage.getItem("journal_entries");
     if (saved) {
@@ -20,7 +20,7 @@ export default function Journal() {
     }
   }, []);
 
-  // Save to localStorage every time entries update
+  
   useEffect(() => {
     localStorage.setItem("journal_entries", JSON.stringify(entries));
   }, [entries]);
